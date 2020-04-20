@@ -1,4 +1,4 @@
-/******************** COFFEE MACHINE APP SOURCE CODE written by Cameron Imanpour ************************/
+/******************** COFFEE MACHINE APP SOURCE CODE by Cameron Imanpour **********************************/
 /********************** FINAL VERSION: April 5, 2020 *****************************************************/
 
 import java.util.Scanner;
@@ -505,83 +505,4 @@ public class CoffeeMachine {
         return (this.coffeeObj.getDisposableCups() > 0);
     }
 
-    /***********************************************************************************************/
-    /********************** REDUNDANT CODE NOT USED FOR FINAL VERSION ******************************/
-    /***********************************************************************************************/
-    // String for type of coffee
-    private String coffeeType;
-
-    // a method that asks user for an action to be performed
-    public void actionScreen2() {
-        // ask what user wants to do (i.e. buy, fill, status, or quit)
-        System.out.println("buy, fill, take, or status? (or \"exit\" to quit.)");
-        // create scanner object
-        Scanner scanner = new Scanner(System.in);
-        // process user input and store in a variable
-        String option = scanner.nextLine().toLowerCase(); // make sure it's lowercase
-        /** invoke the appropriate method based on user's choice **/
-        // if buy is chosen
-        if (option.equals("buy")) {
-            buy(); // invoke this method to buy a cup of coffee
-            actionScreen(); // return to main menu
-        }
-        // if fill is chosen
-        else if (option.equals("fill")) {
-            fill(); // invoke this method to fill with supplies
-            actionScreen(); // return to main menu
-        }
-        // if take is chosen
-        else if (option.equals("take")) {
-            take(); // invoke this method to grab all the cash from the machine
-            actionScreen(); // return to main menu
-        }
-        // if status is chosen
-        else if (option.equals("status")) {
-            // invoke this method to get the status of available supplies
-            getMachineStatus(this.coffeeObj);
-            actionScreen(); // return to main menu
-        }
-        // if user wants to quit
-        else if (option.equals("exit")) {
-            return; // switch off coffee machine (exit program) when user types "exit"
-        }
-        // if an invalid input is entered, inform user by printing an error
-        else {
-            System.out.println("That is not a valid option, please try again!");
-            System.out.println();
-            actionScreen(); // and invoke the method again (restart menu) until user enters valid choice
-        }
-    }
-
-    // a method that checks if there are enough supplies to make a cup of coffee for given coffee type
-    public void checkSupplies2(int water, int milk, int coffeeBeans) {
-        //
-        if (hasEnoughCups()) {
-            if (hasEnoughWater(water)) {
-                if (hasEnoughMilk(milk)) {
-                    if (hasEnoughCoffeeBeans(coffeeBeans)) {
-                        //
-                        System.out.println("I have enough resources, making you a coffee!");
-                        //
-                        canMakeCoffee = true;
-                    } else {
-                        System.out.println("not enough coffee beans.");
-                        canMakeCoffee = false;
-                    }
-                } else {
-                    System.out.println("not enough milk.");
-                    canMakeCoffee = false;
-                }
-            } else {
-                System.out.println("not enough water.");
-                canMakeCoffee = false;
-            }
-        } else {
-            System.out.println("not enough disposable cups.");
-            canMakeCoffee = false;
-        }
-    }
-    /***********************************************************************************************/
-    /********************* REDUNDANT METHODS NOT USED FOR FINAL VERSION ****************************/
-    /***********************************************************************************************/
 }
